@@ -2,10 +2,10 @@
 # Project Name
 Long Description about project. This project do that. This project is awesome...
 ## Team members
-1. Name [Embed personal github URL]
-2. Name [Embed perosnal github URL]
+1. Gowri S R [https://github.com/GowriSR2002]
+2. Gayathri S R [https://github.com/Gayathrisr2002]
 ## Team Id
-Team id here
+technocrats
 ## Link to product walkthrough
 [link to video]
 ## How it Works ?
