@@ -1,4 +1,4 @@
-import tkinter as tk
+from tkinter import *
 from PIL import ImageTk
 import subprocess
 
@@ -20,9 +20,9 @@ class TopicSelectionApp:
         self.root = root
         self.root.title("Choose a Topic")
         self.root.geometry('990x600+50+50')
-        background=ImageTk.PhotoImage(file='.github/bg1.png')
-        self.root.bgLabel=tk.Label(root,image=background)        
-        self.heading_label = tk.Label(root, text="Choose a Topic !", font=("Arial", 24),justify="center")
+        background=ImageTk.PhotoImage(file='.github/bgg1.png')
+        self.root.bgLabel=Label(root,image=background)        
+        self.heading_label = Label(root, text="Choose a Topic !", font=("Arial", 24),justify="center")
         self.heading_label.grid(row=0, column=0, columnspan=5, pady=20)
 
         self.topic_buttons = []
@@ -44,7 +44,7 @@ class TopicSelectionApp:
                 row = 1 + i // 3
                 col = i % 3
             
-            button = tk.Button(root, text=topic, width=15, height=2, font=("Arial", 16) ,bg='white',fg='darkblue',activebackground='lightblue',activeforeground='darkblue',cursor='hand2')
+            button = Button(root, text=topic, width=15, height=2, font=("Arial", 16) ,bg='white',fg='darkblue',activebackground='lightblue',activeforeground='darkblue',cursor='hand2')
             button.grid(row=row, column=col, pady=10, padx=10, sticky="nsew")
             self.topic_buttons.append(button)
         
@@ -63,6 +63,6 @@ class TopicSelectionApp:
             root.grid_columnconfigure(i, weight=1)
 
 if __name__ == "__main__":
-    root = tk.Tk()
+    root = Tk()
     app = TopicSelectionApp(root)
     root.mainloop()
