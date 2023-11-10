@@ -56,6 +56,19 @@ class TopicSelectionApp:
                 command = scienceandnature_page
             elif i == 2:
                 command = famousliterature_page
+            elif i == 3:
+                command = lambda script_name="moviequotes.py": self.run_script(script_name)
+            elif i == 4:
+                command = lambda script_name="history.py": self.run_script(script_name)
+            elif i == 5:
+                command = lambda script_name="geography.py": self.run_script(script_name)
+            elif i == 6:
+                command = lambda script_name="music.py": self.run_script(script_name)
+            elif i == 7:
+                command = lambda script_name="technology.py": self.run_script(script_name)
+            elif i == 8:
+                command = lambda script_name="randomquiz.py": self.run_script(script_name)
+         
          # Configure rows and columns to expand
         for i in range(4):  
             root.grid_rowconfigure(i, weight=1)

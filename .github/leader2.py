@@ -1,5 +1,5 @@
 import tkinter as tk
-from PIL import ImageTkt
+from PIL import ImageTk
 from tkinter import messagebox
 
 class QuizLeaderboard:
@@ -8,7 +8,7 @@ class QuizLeaderboard:
         self.root.title("Quiz Leaderboard")
         self.root.geometry('990x600+50+50')
         bgImage=ImageTk.PhotoImage(file='.github/bg1.png')
-        self.root.bgLabel=Label(login_window,image=bgImage)
+        self.root.bgLabel=tk.Label(root,image=bgImage)
         self.root.configure(bg="#FFD1DC")  # Set background color to light pink
 
         # Quiz variables

@@ -20,57 +20,56 @@ class QuizApp:
 
         self.questions = [
             {
-                'question': "1. What is the capital of France?",
-                'options': ["Paris", "Berlin", "Madrid", "Rome"],
+                'question': "1. What is the chemical symbol for gold?",
+                'options': ["Au", "Ag", "Fe", "Hg"],
                 'correct_option': 0
             },
             {
-                'question': "2. The capital of Japan is:",
-                'options': ["Tokyo", "Beijing", "Seoul", "Bangkok"],
-                'correct_option': 0
-            },
-            {
-                'question': "3. What is the capital of Australia?",
-                'options': ["Sydney", "Melbourne", "Canberra", "Brisbane"],
-                'correct_option': 2
-            },
-            {
-                'question': "4. Which city serves as the capital of Brazil?",
-                'options': ["Rio de Janeiro", "Sao Paulo", "Brasilia", "Salvador"],
-                'correct_option': 2
-            },
-            {
-                'question': "5. The capital of South Africa is:",
-                'options': ["Cape Town", "Pretoria", "Durban", "Johannesburg"],
-                'correct_option': 2
-            },
-            {
-                'question': "6. The capital of Egypt is:",
-                'options': ["Cairo", "Alexandria", "Giza", "Luxor"],
-                'correct_option': 0
-            },
-            {
-                'question': "7. What city serves as the capital of Canada?",
-                'options': ["Toronto", "Vancouver", "Ottawa", "Montreal"],
-                'correct_option': 2
-            },
-            {
-                'question': "8. The capital of India is:",
-                'options': ["Delhi", "Mumbai", "Bangalore", "Kolkata"],
-                'correct_option': 0
-            },
-            {
-                'question': "9. What is the capital of Russia?",
-                'options': ["St. Petersburg", "Moscow", "Vladivostok", "Kiev"],
+                'question': "2. Which gas makes up the majority of Earth's atmosphere?",
+                'options': ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
                 'correct_option': 1
             },
             {
-                'question': "10. What is the capital of Argentina?",
-                'options': ["Buenos Aires", "Santiago", "Lima", "Montevideo"],
+                'question': "3. What is the smallest planet in our solar system?",
+                'options': ["Mars", "Earth", "Venus", "Mercury"],
+                'correct_option': 3
+            },
+            {
+                'question': "4. What is the process by which plants make their own food using sunlight?",
+                'options': ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
+                'correct_option': 1
+            },
+            {
+                'question': "5. Which gas do plants absorb from the atmosphere during photosynthesis?",
+                'options': ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+                'correct_option': 0
+            },
+            {
+                'question': "6. What is the chemical symbol for water?",
+                'options': ["Wo", "Wt", "H2O", "H2SO4"],
+                'correct_option': 2
+            },
+            {
+                'question': "7. Which planet is known as the 'Red Planet' due to its reddish appearance?",
+                'options': ["Mars", "Jupiter", "Venus", "Saturn"],
+                'correct_option': 0
+            },
+            {
+                'question': "8. The study of earthquakes is known as:",
+                'options': ["Meteorology", "Volcanology", "Seismology", "Paleontology"],
+                'correct_option': 2
+            },
+            {
+                'question': "9. What is the closest star to Earth?",
+                'options': ["Alpha Centauri", "Proxima Centauri", "Betelgeuse", "Sirius"],
+                'correct_option': 1
+            },
+            {
+                'question': "10. What is the chemical symbol for oxygen?",
+                'options': ["O2", "Ox", "O", "Oz"],
                 'correct_option': 0
             }
         ]
-
         self.question_label = tk.Label(root, text="",font=("Arial", 16))
         self.question_label.pack(pady=50)
 
@@ -150,3 +149,5 @@ if __name__ == "__main__":
     app = QuizApp(root)
     app.show_question()
     root.mainloop()
+
+

@@ -20,53 +20,53 @@ class QuizApp:
 
         self.questions = [
             {
-                'question': "1. What is the capital of France?",
-                'options': ["Paris", "Berlin", "Madrid", "Rome"],
-                'correct_option': 0
-            },
-            {
-                'question': "2. The capital of Japan is:",
-                'options': ["Tokyo", "Beijing", "Seoul", "Bangkok"],
-                'correct_option': 0
-            },
-            {
-                'question': "3. What is the capital of Australia?",
-                'options': ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+                'question': "1. Who wrote the novel 'To Kill a Mockingbird'?",
+                'options': ["Charles Dickens", "F. Scott Fitzgerald", "Harper Lee", "Jane Austen"],
                 'correct_option': 2
             },
             {
-                'question': "4. Which city serves as the capital of Brazil?",
-                'options': ["Rio de Janeiro", "Sao Paulo", "Brasilia", "Salvador"],
-                'correct_option': 2
-            },
-            {
-                'question': "5. The capital of South Africa is:",
-                'options': ["Cape Town", "Pretoria", "Durban", "Johannesburg"],
-                'correct_option': 2
-            },
-            {
-                'question': "6. The capital of Egypt is:",
-                'options': ["Cairo", "Alexandria", "Giza", "Luxor"],
+                'question': '2. In "1984," what is the totalitarian regime led by Big Brother called?',
+                'options': ["INGSOC", "Oceania", "The Party", "The Brotherhood"],
                 'correct_option': 0
             },
             {
-                'question': "7. What city serves as the capital of Canada?",
-                'options': ["Toronto", "Vancouver", "Ottawa", "Montreal"],
+                'question': '"Pride and Prejudice" is a novel by which author?',
+                'options': ["Emily Bronte", "Charlotte Bronte", "Jane Austen", "Louisa May Alcott"],
                 'correct_option': 2
             },
             {
-                'question': "8. The capital of India is:",
-                'options': ["Delhi", "Mumbai", "Bangalore", "Kolkata"],
+                'question': '4. Which Shakespearean play features the characters Romeo and Juliet?',
+                'options': ["Hamlet", "Macbeth", "Othello", "Romeo and Juliet"],
+                'correct_option': 3
+            },
+            {
+                'question': '5. In "The Catcher in the Rye," what is the name of the protagonist and narrator?',
+                'options': ["Holden Caulfield", "Atticus Finch", "Jay Gatsby", "Huckleberry Finn"],
                 'correct_option': 0
             },
             {
-                'question': "9. What is the capital of Russia?",
-                'options': ["St. Petersburg", "Moscow", "Vladivostok", "Kiev"],
-                'correct_option': 1
+                'question': '"The Great Gatsby" is set in which U.S. city?',
+                'options': ["Chicago", "Los Angeles", "New York", "Boston"],
+                'correct_option': 2
             },
             {
-                'question': "10. What is the capital of Argentina?",
-                'options': ["Buenos Aires", "Santiago", "Lima", "Montevideo"],
+                'question': '7. Who wrote the novel "Moby-Dick"?',
+                'options': ["Mark Twain", "Edgar Allan Poe", "Herman Melville", "Nathaniel Hawthorne"],
+                'correct_option': 2
+            },
+            {
+                'question': '8. In the "Harry Potter" series, what is the name of Harry\'s loyal and intelligent owl?',
+                'options': ["Hedwig", "Scabbers", "Crookshanks", "Dobby"],
+                'correct_option': 0
+            },
+            {
+                'question': "9. What is the title of George Orwell's novella about a dystopian society ruled by totalitarian pigs?",
+                'options': ["'Animal Farm'", "'Brave New World'", "'Lord of the Flies'", "'The Road'"],
+                'correct_option': 0
+            },
+            {
+                'question': '10. Who wrote the novel "Frankenstein"?',
+                'options': ["Mary Shelley", "Bram Stoker", "Edgar Allan Poe", "H.G. Wells"],
                 'correct_option': 0
             }
         ]
