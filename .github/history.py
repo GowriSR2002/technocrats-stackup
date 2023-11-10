@@ -20,56 +20,58 @@ class QuizApp:
 
         self.questions = [
             {
-                'question': "1. What is the chemical symbol for gold?",
-                'options': ["Au", "Ag", "Fe", "Hg"],
-                'correct_option': 0
+                'question': "1. Who was the first President of the United States?",
+                'options': ["Thomas Jefferson", "John Adams", "George Washington", "Benjamin Franklin"],
+                'correct_option': 2
             },
             {
-                'question': "2. Which gas makes up the majority of Earth's atmosphere?",
-                'options': ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
-                'correct_option': 1
-            },
-            {
-                'question': "3. What is the smallest planet in our solar system?",
-                'options': ["Mars", "Earth", "Venus", "Mercury"],
+                'question': "2. Which ancient civilization is known for building the Great Wall of China?",
+                'options': ["Mesopotamia", "Greece", "Egypt", "China"],
                 'correct_option': 3
             },
             {
-                'question': "4. What is the process by which plants make their own food using sunlight?",
-                'options': ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
+                'question': "3. In which year did Christopher Columbus first voyage to the Americas?",
+                'options': ["1492", "1620", "1776", "1812"],
+                'correct_option': 0
+            },
+            {
+                'question': "4. Who was the first woman to fly solo across the Atlantic Ocean?",
+                'options': ["Bessie Coleman", "Amelia Earhart", "Harriet Quimby", "Jacqueline Cochran"],
                 'correct_option': 1
             },
             {
-                'question': "5. Which gas do plants absorb from the atmosphere during photosynthesis?",
-                'options': ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
-                'correct_option': 0
-            },
-            {
-                'question': "6. What is the chemical symbol for water?",
-                'options': ["Wo", "Wt", "H2O", "H2SO4"],
-                'correct_option': 2
-            },
-            {
-                'question': "7. Which planet is known as the 'Red Planet' due to its reddish appearance?",
-                'options': ["Mars", "Jupiter", "Venus", "Saturn"],
-                'correct_option': 0
-            },
-            {
-                'question': "8. The study of earthquakes is known as:",
-                'options': ["Meteorology", "Volcanology", "Seismology", "Paleontology"],
-                'correct_option': 2
-            },
-            {
-                'question': "9. What is the closest star to Earth?",
-                'options': ["Alpha Centauri", "Proxima Centauri", "Betelgeuse", "Sirius"],
+                'question': "5. Which event marked the beginning of World War I in 1914?",
+                'options': ["The sinking of the Titanic", "The assassination of Archduke Franz Ferdinand", 
+                             "The signing of the Treaty of Versailles", "The Battle of the Somme"],
                 'correct_option': 1
             },
             {
-                'question': "10. What is the chemical symbol for oxygen?",
-                'options': ["O2", "Ox", "O", "Oz"],
+                'question': "6. The Renaissance, a cultural and intellectual movement, began in which European city?",
+                'options': ["Paris", "Venice", "Florence", "Athens"],
+                'correct_option': 2
+            },
+            {
+                'question': "7. Who is known for leading the nonviolent civil rights movement in the United States during the 1960s?",
+                'options': ["Martin Luther King Jr.", "Malcolm X", "Nelson Mandela", "Mahatma Gandhi"],
                 'correct_option': 0
-            }
+            },
+            {
+                'question': "8. The Industrial Revolution began in which country during the late 18th century?",
+                'options': ["France", "Germany", "United Kingdom", "United States"],
+                'correct_option': 2
+            },
+            {
+                'question': "9. Which famous explorer was the first to circumnavigate the Earth?",
+                'options': ["Vasco da Gama", "Ferdinand Magellan", "Marco Polo", "Christopher Columbus"],
+                'correct_option': 1
+            },
+            {
+                'question': "10. Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
+                'options': ["Vladimir Putin", "Joseph Stalin", "Nikita Khrushchev", "Leon Trotsky"],
+                'correct_option': 2
+            },
         ]
+
         self.question_label = tk.Label(root, text="",font=("Arial", 16))
         self.question_label.pack(pady=50)
 
@@ -97,14 +99,16 @@ class QuizApp:
         self.timer_seconds = 0
         self.timer_running = False
         
-        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
+        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
         self.prev_button.pack(side=tk.LEFT,pady=10,padx=100)
 
-        self.next_button = tk.Button(root, text="Next", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
+        self.next_button = tk.Button(root, text="Next", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
         self.next_button.pack(side=tk.LEFT,pady=10,padx=100)
         
         self.submit_button = tk.Button(root, text="Submit", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.submit_quiz ,state=tk.DISABLED)
         self.submit_button.pack(side=tk.LEFT,pady=10,padx=70)
+
+
         
     def start_timer(self):
         self.timer_running = True
@@ -165,12 +169,12 @@ class QuizApp:
         for i, (radio, text) in enumerate(self.radio_buttons):
             radio.config(variable=self.var, value=i)
             text.config(text=question['options'][i], font=("Arial", 16), anchor="w")
-
+        # Start the timer when the first question is shown
+        if not self.timer_running:
+            self.start_timer()
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = QuizApp(root)
     app.show_question()
     root.mainloop()
-
-

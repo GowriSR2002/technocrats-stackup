@@ -20,56 +20,59 @@ class QuizApp:
 
         self.questions = [
             {
-                'question': "1. What is the chemical symbol for gold?",
-                'options': ["Au", "Ag", "Fe", "Hg"],
-                'correct_option': 0
+                'question': "1. Who co-founded Microsoft and is one of the wealthiest people in the world?",
+                'options': ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Jeff Bezos"],
+                'correct_option': 1,
             },
             {
-                'question': "2. Which gas makes up the majority of Earth's atmosphere?",
-                'options': ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
-                'correct_option': 1
+                'question': "2. Which company developed the iPhone, iPad, and Macintosh computer?",
+                'options': ["Microsoft", "Apple", "Google", "Amazon"],
+                'correct_option': 1,
             },
             {
-                'question': "3. What is the smallest planet in our solar system?",
-                'options': ["Mars", "Earth", "Venus", "Mercury"],
-                'correct_option': 3
+                'question': "3. What does the acronym 'WWW' stand for in the context of the internet?",
+                'options': ["World Wide Web", "World Wrestling World", "Wireless Web Work", "World Widget Web"],
+                'correct_option': 0,
             },
             {
-                'question': "4. What is the process by which plants make their own food using sunlight?",
-                'options': ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
-                'correct_option': 1
+                'question': "4. Which social media platform is known for its character limit in posts and tweets?",
+                'options': ["Facebook", "Instagram", "Twitter", "LinkedIn"],
+                'correct_option': 2,
             },
             {
-                'question': "5. Which gas do plants absorb from the atmosphere during photosynthesis?",
-                'options': ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
-                'correct_option': 0
+                'question': "5. What does the abbreviation 'PDF' stand for in the context of document formats?",
+                'options': ["Portable Document Format", "Pretty Digital File", "Print Document File", "Personal Data File"],
+                'correct_option': 0,
             },
             {
-                'question': "6. What is the chemical symbol for water?",
-                'options': ["Wo", "Wt", "H2O", "H2SO4"],
-                'correct_option': 2
+                'question': "6. Who is the co-founder of SpaceX and Tesla, Inc.?",
+                'options': ["Jeff Bezos", "Richard Branson", "Elon Musk", "Mark Zuckerberg"],
+                'correct_option': 2,
             },
             {
-                'question': "7. Which planet is known as the 'Red Planet' due to its reddish appearance?",
-                'options': ["Mars", "Jupiter", "Venus", "Saturn"],
-                'correct_option': 0
+                'question': "7. Which programming language is often used for web development and is known for its versatility?",
+                'options': ["Java", "C++", "Python", "JavaScript"],
+                'correct_option': 3,
             },
             {
-                'question': "8. The study of earthquakes is known as:",
-                'options': ["Meteorology", "Volcanology", "Seismology", "Paleontology"],
-                'correct_option': 2
+                'question': "8. The first commercial email system was developed by which company in the early 1970s?",
+                'options': ["Microsoft", "Google", "Apple", "Ray Tomlinson"],
+                'correct_option': 3,
             },
             {
-                'question': "9. What is the closest star to Earth?",
-                'options': ["Alpha Centauri", "Proxima Centauri", "Betelgeuse", "Sirius"],
-                'correct_option': 1
+                'question': "9. What does the abbreviation 'AI' stand for in the context of technology?",
+                'options': ["Authentic Intelligence", "Advanced Interface", "Artificial Intelligence", "Automated Internet"],
+                'correct_option': 2,
             },
             {
-                'question': "10. What is the chemical symbol for oxygen?",
-                'options': ["O2", "Ox", "O", "Oz"],
-                'correct_option': 0
-            }
+                'question': "10. Who is often called the 'father of the computer' and developed the first mechanical computer, known as the Analytical Engine?",
+                'options': ["Steve Jobs", "Charles Babbage", "Alan Turing", "Tim Berners-Lee"],
+                'correct_option': 1,
+            },
         ]
+
+
+
         self.question_label = tk.Label(root, text="",font=("Arial", 16))
         self.question_label.pack(pady=50)
 
@@ -97,14 +100,16 @@ class QuizApp:
         self.timer_seconds = 0
         self.timer_running = False
         
-        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
+        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
         self.prev_button.pack(side=tk.LEFT,pady=10,padx=100)
 
-        self.next_button = tk.Button(root, text="Next", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
+        self.next_button = tk.Button(root, text="Next", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
         self.next_button.pack(side=tk.LEFT,pady=10,padx=100)
         
         self.submit_button = tk.Button(root, text="Submit", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.submit_quiz ,state=tk.DISABLED)
         self.submit_button.pack(side=tk.LEFT,pady=10,padx=70)
+
+
         
     def start_timer(self):
         self.timer_running = True
@@ -165,12 +170,12 @@ class QuizApp:
         for i, (radio, text) in enumerate(self.radio_buttons):
             radio.config(variable=self.var, value=i)
             text.config(text=question['options'][i], font=("Arial", 16), anchor="w")
-
+        # Start the timer when the first question is shown
+        if not self.timer_running:
+            self.start_timer()
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = QuizApp(root)
     app.show_question()
     root.mainloop()
-
-

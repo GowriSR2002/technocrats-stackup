@@ -20,56 +20,58 @@ class QuizApp:
 
         self.questions = [
             {
-                'question': "1. What is the chemical symbol for gold?",
-                'options': ["Au", "Ag", "Fe", "Hg"],
-                'correct_option': 0
+                'question': "1. What is the capital of Argentina?",
+                'options': ["Santiago", "Lima", "Montevideo", "Buenos Aires"],
+                'correct_option': 3,
             },
             {
-                'question': "2. Which gas makes up the majority of Earth's atmosphere?",
-                'options': ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
-                'correct_option': 1
+                'question': "2. Which gas is responsible for the Earth's ozone layer depletion?",
+                'options': ["Oxygen", "Carbon dioxide", "Chlorofluorocarbons (CFCs)", "Nitrogen"],
+                'correct_option': 2,
             },
             {
-                'question': "3. What is the smallest planet in our solar system?",
-                'options': ["Mars", "Earth", "Venus", "Mercury"],
-                'correct_option': 3
+                'question': "3. Who wrote the novel '1984'?",
+                'options': ["George Orwell", "Aldous Huxley", "Ray Bradbury", "Franz Kafka"],
+                'correct_option': 0,
             },
             {
-                'question': "4. What is the process by which plants make their own food using sunlight?",
-                'options': ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
-                'correct_option': 1
+                'question': "4. In which movie does the character say, 'Keep your friends close, but your enemies closer'?",
+                'options': ["The Godfather Part II", "Scarface", "The Dark Knight", "Goodfellas"],
+                'correct_option': 0,
             },
             {
-                'question': "5. Which gas do plants absorb from the atmosphere during photosynthesis?",
-                'options': ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
-                'correct_option': 0
+                'question': "5. Who was the first woman to fly solo across the Atlantic Ocean?",
+                'options': ["Amelia Earhart", "Bessie Coleman", "Harriet Quimby", "Jacqueline Cochran"],
+                'correct_option': 0,
             },
             {
-                'question': "6. What is the chemical symbol for water?",
-                'options': ["Wo", "Wt", "H2O", "H2SO4"],
-                'correct_option': 2
+                'question': "6. Who is known for the hit song 'Purple Rain' and the album of the same name?",
+                'options': ["David Bowie", "Prince", "Michael Jackson", "Elton John"],
+                'correct_option': 1,
             },
             {
-                'question': "7. Which planet is known as the 'Red Planet' due to its reddish appearance?",
-                'options': ["Mars", "Jupiter", "Venus", "Saturn"],
-                'correct_option': 0
+                'question': "7. Which country won the FIFA World Cup in 2014?",
+                'options': ["Brazil", "Germany", "France", "Argentina"],
+                'correct_option': 1,
             },
             {
-                'question': "8. The study of earthquakes is known as:",
-                'options': ["Meteorology", "Volcanology", "Seismology", "Paleontology"],
-                'correct_option': 2
+                'question': "8. What does the acronym 'AI' stand for in the context of technology?",
+                'options': ["Authentic Intelligence", "Advanced Interface", "Artificial Intelligence", "Automated Internet"],
+                'correct_option': 2,
             },
             {
-                'question': "9. What is the closest star to Earth?",
-                'options': ["Alpha Centauri", "Proxima Centauri", "Betelgeuse", "Sirius"],
-                'correct_option': 1
+                'question': "9. Which African country is known as the 'Rainbow Nation' and was home to Nelson Mandela?",
+                'options': ["Kenya", "Nigeria", "South Africa", "Egypt"],
+                'correct_option': 2,
             },
             {
-                'question': "10. What is the chemical symbol for oxygen?",
-                'options': ["O2", "Ox", "O", "Oz"],
-                'correct_option': 0
-            }
+                'question': "10. What is the chemical symbol for silver?",
+                'options': ["Si", "S", "Ag", "Sl"],
+                'correct_option': 2,
+            },
         ]
+
+
         self.question_label = tk.Label(root, text="",font=("Arial", 16))
         self.question_label.pack(pady=50)
 
@@ -97,14 +99,16 @@ class QuizApp:
         self.timer_seconds = 0
         self.timer_running = False
         
-        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
+        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
         self.prev_button.pack(side=tk.LEFT,pady=10,padx=100)
 
-        self.next_button = tk.Button(root, text="Next", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
+        self.next_button = tk.Button(root, text="Next", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
         self.next_button.pack(side=tk.LEFT,pady=10,padx=100)
         
         self.submit_button = tk.Button(root, text="Submit", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.submit_quiz ,state=tk.DISABLED)
         self.submit_button.pack(side=tk.LEFT,pady=10,padx=70)
+
+
         
     def start_timer(self):
         self.timer_running = True
@@ -165,12 +169,12 @@ class QuizApp:
         for i, (radio, text) in enumerate(self.radio_buttons):
             radio.config(variable=self.var, value=i)
             text.config(text=question['options'][i], font=("Arial", 16), anchor="w")
-
+        # Start the timer when the first question is shown
+        if not self.timer_running:
+            self.start_timer()
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = QuizApp(root)
     app.show_question()
     root.mainloop()
-
-

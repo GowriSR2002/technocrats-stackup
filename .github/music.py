@@ -20,56 +20,58 @@ class QuizApp:
 
         self.questions = [
             {
-                'question': "1. What is the chemical symbol for gold?",
-                'options': ["Au", "Ag", "Fe", "Hg"],
-                'correct_option': 0
+                'question': "1. Who is often referred to as the 'King of Pop' and is known for hits like 'Billie Jean' and 'Thriller'?",
+                'options': ["Elvis Presley", "Prince", "Michael Jackson", "Stevie Wonder"],
+                'correct_option': 2,
             },
             {
-                'question': "2. Which gas makes up the majority of Earth's atmosphere?",
-                'options': ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
-                'correct_option': 1
+                'question': "2. What legendary rock band released the albums 'The Dark Side of the Moon' and 'The Wall'?",
+                'options': ["Led Zeppelin", "The Rolling Stones", "Pink Floyd", "The Who"],
+                'correct_option': 2,
             },
             {
-                'question': "3. What is the smallest planet in our solar system?",
-                'options': ["Mars", "Earth", "Venus", "Mercury"],
-                'correct_option': 3
+                'question': "3. Who is the lead singer of the band U2?",
+                'options': ["Bono", "Sting", "Bon Jovi", "David Bowie"],
+                'correct_option': 0,
             },
             {
-                'question': "4. What is the process by which plants make their own food using sunlight?",
-                'options': ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
-                'correct_option': 1
+                'question': "4. Which country is famous for the musical style known as flamenco?",
+                'options': ["Italy", "Spain", "Greece", "Mexico"],
+                'correct_option': 1,
             },
             {
-                'question': "5. Which gas do plants absorb from the atmosphere during photosynthesis?",
-                'options': ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
-                'correct_option': 0
+                'question': "5. The song 'Bohemian Rhapsody' is a classic hit by which British rock band?",
+                'options': ["The Beatles", "Queen", "The Rolling Stones", "The Who"],
+                'correct_option': 1,
             },
             {
-                'question': "6. What is the chemical symbol for water?",
-                'options': ["Wo", "Wt", "H2O", "H2SO4"],
-                'correct_option': 2
+                'question': "6. What musical instrument does Yo-Yo Ma, the renowned cellist, play?",
+                'options': ["Piano", "Violin", "Cello", "Trumpet"],
+                'correct_option': 2,
             },
             {
-                'question': "7. Which planet is known as the 'Red Planet' due to its reddish appearance?",
-                'options': ["Mars", "Jupiter", "Venus", "Saturn"],
-                'correct_option': 0
+                'question': "7. Who is known for the album 'Born to Run' and songs like 'Born in the USA'?",
+                'options': ["Bruce Springsteen", "Billy Joel", "Tom Petty", "Neil Young"],
+                'correct_option': 0,
             },
             {
-                'question': "8. The study of earthquakes is known as:",
-                'options': ["Meteorology", "Volcanology", "Seismology", "Paleontology"],
-                'correct_option': 2
+                'question': "8. What famous British rock band had members John Lennon, Paul McCartney, George Harrison, and Ringo Starr?",
+                'options': ["The Rolling Stones", "The Who", "The Kinks", "The Beatles"],
+                'correct_option': 3,
             },
             {
-                'question': "9. What is the closest star to Earth?",
-                'options': ["Alpha Centauri", "Proxima Centauri", "Betelgeuse", "Sirius"],
-                'correct_option': 1
+                'question': "9. Who is the 'Queen of Pop' and known for hits like 'Like a Virgin' and 'Material Girl'?",
+                'options': ["Whitney Houston", "Mariah Carey", "Madonna", "Janet Jackson"],
+                'correct_option': 2,
             },
             {
-                'question': "10. What is the chemical symbol for oxygen?",
-                'options': ["O2", "Ox", "O", "Oz"],
-                'correct_option': 0
-            }
+                'question': "10. 'Purple Haze' and 'Foxy Lady' are songs by which iconic American guitarist and singer?",
+                'options': ["Jimi Hendrix", "Eric Clapton", "B.B. King", "Carlos Santana"],
+                'correct_option': 0,
+            },
         ]
+
+
         self.question_label = tk.Label(root, text="",font=("Arial", 16))
         self.question_label.pack(pady=50)
 
@@ -97,14 +99,16 @@ class QuizApp:
         self.timer_seconds = 0
         self.timer_running = False
         
-        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
+        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
         self.prev_button.pack(side=tk.LEFT,pady=10,padx=100)
 
-        self.next_button = tk.Button(root, text="Next", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
+        self.next_button = tk.Button(root, text="Next", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
         self.next_button.pack(side=tk.LEFT,pady=10,padx=100)
         
         self.submit_button = tk.Button(root, text="Submit", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.submit_quiz ,state=tk.DISABLED)
         self.submit_button.pack(side=tk.LEFT,pady=10,padx=70)
+
+
         
     def start_timer(self):
         self.timer_running = True
@@ -165,12 +169,12 @@ class QuizApp:
         for i, (radio, text) in enumerate(self.radio_buttons):
             radio.config(variable=self.var, value=i)
             text.config(text=question['options'][i], font=("Arial", 16), anchor="w")
-
+        # Start the timer when the first question is shown
+        if not self.timer_running:
+            self.start_timer()
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = QuizApp(root)
     app.show_question()
     root.mainloop()
-
-

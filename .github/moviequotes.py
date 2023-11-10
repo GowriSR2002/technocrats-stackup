@@ -96,18 +96,41 @@ class QuizApp:
             text.pack(side="left")  # Align the text to the left
 
             self.radio_buttons.append((radio, text))
+
+        self.timer_label = tk.Label(root, text="Timer: 0:00", font=("Arial", 14))
+        self.timer_label.pack( padx=10, pady=10)
+
+        self.timer_seconds = 0
+        self.timer_running = False
         
-        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16) ,fg='white',bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
+        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
         self.prev_button.pack(side=tk.LEFT,pady=10,padx=100)
 
-        self.next_button = tk.Button(root, text="Next", font=("Arial", 16) ,fg='white',bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
+        self.next_button = tk.Button(root, text="Next", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
         self.next_button.pack(side=tk.LEFT,pady=10,padx=100)
         
-        self.submit_button = tk.Button(root, text="Submit", font=("Arial", 16) ,fg='white',bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.submit_quiz ,state=tk.DISABLED)
+        self.submit_button = tk.Button(root, text="Submit", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.submit_quiz ,state=tk.DISABLED)
         self.submit_button.pack(side=tk.LEFT,pady=10,padx=70)
         
+    def start_timer(self):
+        self.timer_running = True
+        self.update_timer()
+
+    def stop_timer(self):
+        self.timer_running = False
+
+    def update_timer(self):
+        if self.timer_running:
+            minutes = self.timer_seconds // 60
+            seconds = self.timer_seconds % 60
+            timer_text = f"Timer: {minutes}:{seconds:02d}"
+            self.timer_label.config(text=timer_text)
+            self.timer_seconds += 1
+            self.root.after(1000, self.update_timer)
 
     def submit_quiz(self):
+        # Stop the timer when the quiz is submitted
+        self.stop_timer()
         messagebox.showinfo("Quiz Over", f"Your final score is {self.score}/{len(self.questions)}")
         command=leaderboard_page
         self.root.quit()

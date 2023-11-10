@@ -20,56 +20,58 @@ class QuizApp:
 
         self.questions = [
             {
-                'question': "1. What is the chemical symbol for gold?",
-                'options': ["Au", "Ag", "Fe", "Hg"],
-                'correct_option': 0
+                'question': "1. What is the longest river in the world?",
+                'options': ["Nile", "Amazon", "Mississippi", "Yangtze"],
+                'correct_option': 0,
             },
             {
-                'question': "2. Which gas makes up the majority of Earth's atmosphere?",
-                'options': ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
-                'correct_option': 1
+                'question': "2. Which mountain range stretches across the northern part of India?",
+                'options': ["Andes", "Himalayas", "Rocky Mountains", "Alps"],
+                'correct_option': 1,
             },
             {
-                'question': "3. What is the smallest planet in our solar system?",
-                'options': ["Mars", "Earth", "Venus", "Mercury"],
-                'correct_option': 3
+                'question': "3. Which country is known as the Land Down Under?",
+                'options': ["Canada", "Brazil", "Australia", "South Africa"],
+                'correct_option': 2,
             },
             {
-                'question': "4. What is the process by which plants make their own food using sunlight?",
-                'options': ["Respiration", "Photosynthesis", "Digestion", "Fermentation"],
-                'correct_option': 1
+                'question': "4. In which African country would you find the Great Pyramid of Giza?",
+                'options': ["Morocco", "Egypt", "Kenya", "Nigeria"],
+                'correct_option': 1,
             },
             {
-                'question': "5. Which gas do plants absorb from the atmosphere during photosynthesis?",
-                'options': ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
-                'correct_option': 0
+                'question': "5. Which continent is the driest and has the highest average temperature?",
+                'options': ["Antarctica", "Africa", "South America", "Australia"],
+                'correct_option': 3,
             },
             {
-                'question': "6. What is the chemical symbol for water?",
-                'options': ["Wo", "Wt", "H2O", "H2SO4"],
-                'correct_option': 2
+                'question': "6. The Panama Canal connects which two major bodies of water?",
+                'options': ["Mediterranean Sea and Red Sea", "Atlantic Ocean and Pacific Ocean", "Black Sea and Caspian Sea", "Gulf of Mexico and Caribbean Sea"],
+                'correct_option': 1,
             },
             {
-                'question': "7. Which planet is known as the 'Red Planet' due to its reddish appearance?",
-                'options': ["Mars", "Jupiter", "Venus", "Saturn"],
-                'correct_option': 0
+                'question': "7. What is the largest desert in the world by area?",
+                'options': ["Sahara Desert", "Gobi Desert", "Atacama Desert", "Arabian Desert"],
+                'correct_option': 0,
             },
             {
-                'question': "8. The study of earthquakes is known as:",
-                'options': ["Meteorology", "Volcanology", "Seismology", "Paleontology"],
-                'correct_option': 2
+                'question': "8. Which U.S. state is known as the 'Sunshine State'?",
+                'options': ["California", "Florida", "Texas", "Arizona"],
+                'correct_option': 1,
             },
             {
-                'question': "9. What is the closest star to Earth?",
-                'options': ["Alpha Centauri", "Proxima Centauri", "Betelgeuse", "Sirius"],
-                'correct_option': 1
+                'question': "9. The city of Venice, known for its canals, is located in which country?",
+                'options': ["Greece", "Italy", "France", "Spain"],
+                'correct_option': 1,
             },
             {
-                'question': "10. What is the chemical symbol for oxygen?",
-                'options': ["O2", "Ox", "O", "Oz"],
-                'correct_option': 0
-            }
+                'question': "10. What is the largest country in South America by land area?",
+                'options': ["Argentina", "Brazil", "Chile", "Colombia"],
+                'correct_option': 1,
+            },
         ]
+
+
         self.question_label = tk.Label(root, text="",font=("Arial", 16))
         self.question_label.pack(pady=50)
 
@@ -97,14 +99,16 @@ class QuizApp:
         self.timer_seconds = 0
         self.timer_running = False
         
-        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
+        self.prev_button = tk.Button(root, text="Previous", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.previous_question ,state=tk.DISABLED)
         self.prev_button.pack(side=tk.LEFT,pady=10,padx=100)
 
-        self.next_button = tk.Button(root, text="Next", font=("Arial", 16),bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
+        self.next_button = tk.Button(root, text="Next", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.next_question)
         self.next_button.pack(side=tk.LEFT,pady=10,padx=100)
         
         self.submit_button = tk.Button(root, text="Submit", font=("Arial", 16) ,bg='lightblue',activebackground='darkblue',activeforeground='white',cursor='hand2', command=self.submit_quiz ,state=tk.DISABLED)
         self.submit_button.pack(side=tk.LEFT,pady=10,padx=70)
+
+
         
     def start_timer(self):
         self.timer_running = True
@@ -165,12 +169,12 @@ class QuizApp:
         for i, (radio, text) in enumerate(self.radio_buttons):
             radio.config(variable=self.var, value=i)
             text.config(text=question['options'][i], font=("Arial", 16), anchor="w")
-
+        # Start the timer when the first question is shown
+        if not self.timer_running:
+            self.start_timer()
 
 if __name__ == "__main__":
     root = tk.Tk()
     app = QuizApp(root)
     app.show_question()
     root.mainloop()
-
-
